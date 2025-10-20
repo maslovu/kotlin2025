@@ -1,18 +1,18 @@
 package ru.maslov
 
 const val HERO_NAME = "Jenifer"
-var playerLevel = 5
+var playerLevel = 0
 
 fun main() {
-    println("The hero announces her presence to the world")
+    println("$HERO_NAME announces her presence to the world")
+    println("What level is $HERO_NAME")
+    playerLevel = readLine()!!.toInt();
 
-    println(HERO_NAME)
-
-    println(playerLevel)
+    println("$HERO_NAME's level is $playerLevel")
     readBountyBoard()
 
     println("Time passed...")
-    println("The hero returns from the quest.")
+    println("$HERO_NAME returns from the quest.")
 
     playerLevel += 1
     println(playerLevel)
@@ -20,8 +20,10 @@ fun main() {
 }
 
 private fun readBountyBoard() {
-    println("The hero approaches the bounty board. It reads:")
-    println(obtainQuest(playerLevel))
+    println("""
+        |$HERO_NAME approaches the bounty board. It reads:
+        |   ${obtainQuest(playerLevel)}
+    """.trimMargin())
 }
 
 private fun obtainQuest(
